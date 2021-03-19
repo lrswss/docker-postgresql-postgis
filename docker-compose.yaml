@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  postgresql:
+    image: bettwanze/postgis:11-2.5
+    volumes:
+      - ./configuration/postgresql/initdb:/docker-entrypoint-initdb.d
+      - postgresqldata:/var/lib/postgresql
+    ports:
+      - 5432:5432
+
+volumes:
+  postgresqldata:
