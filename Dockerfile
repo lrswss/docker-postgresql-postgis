@@ -39,7 +39,7 @@ COPY install-postgis.sh /var/lib/postgresql/
 RUN chmod 755 /var/lib/postgresql/install-postgis.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-VOLUME /var/lib/postgresql/$POSTGRES_MAJOR_VERSION
+VOLUME /var/lib/postgresql
 
 STOPSIGNAL SIGINT
 EXPOSE 5432

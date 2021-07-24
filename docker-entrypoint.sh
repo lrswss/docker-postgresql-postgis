@@ -61,14 +61,10 @@ if [ "$1" = "postgres" ]; then
 		/var/lib/postgresql/install-postgis.sh
 		docker_process_init_files /docker-entrypoint-initdb.d/*
 		pg_ctlcluster 11 main stop
-		echo
-		echo 'PostgreSQL/Postgis init process complete; ready for start up.'
-		echo
+		echo "Initial postgresql/postgis setup completed!"
 	fi
 
-	echo
 	echo "Starting PostgresSQL version $POSTGRES_MAJOR_VERSION..."
-	echo
 	exec postgres -D $PGDATA
 else
 	exec "$@"
